@@ -1,4 +1,6 @@
 ---
+// Import silhouette image
+import ae86Silhouette from '../assets/history/ae86-silhouette.png';
 ---
 <section id="history" class="py-20 bg-gradient-to-b from-trueno-black-light to-trueno-black">
   <div class="container mx-auto px-4">
@@ -53,14 +55,12 @@
           </div>
         </div>
 
-        <!-- Updated silhouette section with consistent styling -->
+        <!-- Updated silhouette section with imported image -->
         <div class="mt-6 sm:mt-12">
           <div class="relative overflow-hidden rounded-xl group">
             <div 
-              class="h-40 sm:h-40 w-full 
-              bg-[url('/src/assets/history/ae86-silhouette.png')] 
-              bg-cover bg-center bg-no-repeat 
-              transition-transform duration-500 group-hover:scale-110"
+              class="h-40 sm:h-40 w-full bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+              style={`background-image: url(${ae86Silhouette.src})`}
             ></div>
           </div>
         </div>

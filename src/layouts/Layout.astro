@@ -10,7 +10,7 @@ interface Props {
 
 const { 
   title,
-  description = "Pre-order the iconic AE86 Illuminated Key Holder - A must-have for car enthusiasts!"
+  description = "Pop-up headlights for your keys! Limited edition AE86 key holder. Pre-order now!"
 } = Astro.props;
 
 // Use production domain for meta tags
@@ -28,14 +28,14 @@ const productionDomain = 'https://jdmhook.org';
     <title>{title}</title>
 
     <!-- Open Graph meta tags with production domain -->
-    <meta property="og:title" content="AE86 Trueno Key Holder - Pre-order Now!" />
-    <meta property="og:description" content="Own a piece of JDM history with our premium AE86 key holder. Perfect for car enthusiasts." />
+    <meta property="og:title" content="JDM Hook! Pop-up Key Holder" />
+    <meta property="og:description" content="Your keys deserve pop-up headlights! Limited AE86 key holders available." />
     <meta property="og:image" content={`${productionDomain}/og-image.png`} />
     <meta property="og:url" content={productionDomain} />
     <meta property="og:type" content="website" />
 
     <!-- iOS specific -->
-    <meta name="apple-mobile-web-app-title" content="AE86 Key Holder" />
+    <meta name="apple-mobile-web-app-title" content="JDM Hook" />
     <meta name="theme-color" content="#000000" />
   </head>
   <body class="bg-trueno-black text-trueno-white font-inter">

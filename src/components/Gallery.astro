@@ -6,6 +6,7 @@ import ae86_3 from '../assets/gallery/ae86-3.png';
 import ae86_4 from '../assets/gallery/ae86-4.png';
 import ae86_5 from '../assets/gallery/ae86-5.png';
 import ae86_6 from '../assets/gallery/ae86-6.png';
+const base = import.meta.env.BASE_URL;
 
 const images = [
   {
@@ -53,7 +54,7 @@ const images = [
       {images.map(image => (
         <div class="group relative overflow-hidden rounded-xl aspect-[4/3]" data-aos="fade-up">
           <img 
-            src={image.src} 
+            src={`${base}${image.src}`} 
             alt={image.alt}
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />

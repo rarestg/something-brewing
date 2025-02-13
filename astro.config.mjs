@@ -8,6 +8,6 @@ export default defineConfig({
   base: '/something-brewing',
   integrations: [tailwind()],
   build: {
-    assets: 'assets',
+    assets: '_assets',
   },
 })

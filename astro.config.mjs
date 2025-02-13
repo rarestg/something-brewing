@@ -4,8 +4,7 @@ import tailwind from '@astrojs/tailwind'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://rarestg.github.io',
-  base: '/something-brewing',
+  site: 'https://jdmhook.org',
   integrations: [tailwind()],
   build: {
     assets: '_assets',

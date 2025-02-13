@@ -1,5 +1,4 @@
 ---
-import { getAssetPath } from '../utils/paths';
 import ae86Silhouette from '../assets/history/ae86-silhouette.png';
 ---
 <section id="history" class="py-20 bg-gradient-to-b from-trueno-black-light to-trueno-black">
@@ -60,7 +59,7 @@ import ae86Silhouette from '../assets/history/ae86-silhouette.png';
           <div class="relative overflow-hidden rounded-xl group">
             <div 
               class="h-40 sm:h-40 w-full bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-110"
-              style={`background-image: url(${getAssetPath(ae86Silhouette.src)})`}
+              style={`background-image: url(${ae86Silhouette.src})`}
             ></div>
           </div>
         </div>

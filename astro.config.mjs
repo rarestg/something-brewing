@@ -7,4 +7,7 @@ export default defineConfig({
   site: 'https://rarestg.github.io',
   base: '/something-brewing',
   integrations: [tailwind()],
+  build: {
+    assets: 'assets',
+  },
 })

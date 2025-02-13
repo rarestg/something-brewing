@@ -14,7 +14,11 @@ const {
 } = Astro.props;
 
 // Get the base URL from import.meta.env
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL || '';
+
+// Use this for asset paths
+const assetPath = (path: string) => `${base}${path}`;
+
 // Use production domain for meta tags, but keep GitHub Pages URL for assets
 const productionDomain = 'https://jdmhook.org';
 ---
@@ -25,14 +29,14 @@ const productionDomain = 'https://jdmhook.org';
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" type="image/svg+xml" href={assetPath('/favicon.svg')} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
     <!-- Open Graph meta tags with production domain -->
     <meta property="og:title" content="AE86 Trueno Key Holder - Pre-order Now!" />
     <meta property="og:description" content="Own a piece of JDM history with our premium AE86 key holder. Perfect for car enthusiasts." />
-    <meta property="og:image" content={`${productionDomain}/og-image.png`} />
+    <meta property="og:image" content={`${productionDomain}${base}/og-image.png`} />
     <meta property="og:url" content={productionDomain} />
     <meta property="og:type" content="website" />
 

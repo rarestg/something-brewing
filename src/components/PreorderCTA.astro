@@ -1,0 +1,77 @@
+---
+import PreorderModal from './PreorderModal.astro';
+---
+
+<section id="pre-order" class="py-20 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[url('/src/assets/preorder/preorder-bg.jpg')] bg-cover bg-center opacity-20 overflow-hidden"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-trueno-black via-trueno-black/90 to-trueno-black/80"></div>
+  
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl md:text-6xl font-racing mb-8 [text-shadow:_4px_4px_8px_rgb(0_0_0_/_85%)]">
+        Ready to Park Your Keys in <span class="text-trueno-red [text-shadow:_0.5px_0.5px_0_#000,_1px_1px_4px_rgb(0_0_0_/_30%)]">Legendary</span> Style?
+      </h2>
+      <p class="text-xl mb-12 text-trueno-white/90">
+        Don't let this piece of automotive design drift away! Pre-order now and get an exclusive Initial D artwork print.
+        Limited stock – get yours before they disappear faster than Takumi on Akina Mountain!
+      </p>
+      
+      <div class="countdown-timer mb-12 grid grid-cols-4 gap-4 max-w-md mx-auto">
+        <div class="bg-trueno-black/50 backdrop-blur-lg p-4 rounded-xl border border-trueno-white/10">
+          <span class="days text-3xl font-racing text-trueno-red block
+            [text-shadow:_0.5px_0.5px_0_#000,_1px_1px_4px_rgb(0_0_0_/_30%)]">00</span>
+          <span class="text-sm text-trueno-white/80">Days</span>
+        </div>
+        <div class="bg-trueno-black/50 backdrop-blur-lg p-4 rounded-xl border border-trueno-white/10">
+          <span class="hours text-3xl font-racing text-trueno-red block
+            [text-shadow:_0.5px_0.5px_0_#000,_1px_1px_4px_rgb(0_0_0_/_30%)]">00</span>
+          <span class="text-sm text-trueno-white/80">Hours</span>
+        </div>
+        <div class="bg-trueno-black/50 backdrop-blur-lg p-4 rounded-xl border border-trueno-white/10">
+          <span class="minutes text-3xl font-racing text-trueno-red block
+            [text-shadow:_0.5px_0.5px_0_#000,_1px_1px_4px_rgb(0_0_0_/_30%)]">00</span>
+          <span class="text-sm text-trueno-white/80">Minutes</span>
+        </div>
+        <div class="bg-trueno-black/50 backdrop-blur-lg p-4 rounded-xl border border-trueno-white/10">
+          <span class="seconds text-3xl font-racing text-trueno-red block
+            [text-shadow:_0.5px_0.5px_0_#000,_1px_1px_4px_rgb(0_0_0_/_30%)]">00</span>
+          <span class="text-sm text-trueno-white/80">Seconds</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center gap-6">
+        <button
+          onclick="openPreorderModal()"
+          class="inline-block bg-trueno-red text-trueno-white font-racing px-12 py-4 text-2xl rounded-full
+            hover:bg-red-700 transition-colors duration-300 shadow-lg hover:shadow-xl
+            [text-shadow:_4px_4px_8px_rgb(0_0_0_/_85%)]"
+        >
+          Pre-Order Now - $39.99
+        </button>
+        <p class="text-trueno-white/60">* Free shipping worldwide</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updateCountdown() {
+      const launchDate = new Date('2025-03-01T00:00:00');
+      const now = new Date();
+      const diff = launchDate.getTime() - now.getTime();
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.querySelector('.days').textContent = days.toString().padStart(2, '0');
+      document.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+      document.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+      document.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</section>
+<PreorderModal />

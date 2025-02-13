@@ -1,0 +1,69 @@
+---
+const images = [
+  {
+    src: "/src/assets/gallery/ae86-1.png",
+    alt: "AE86 Trueno Front View",
+    caption: "Classic Front Profile"
+  },
+  {
+    src: "/src/assets/gallery/ae86-2.png",
+    alt: "AE86 Trueno Pop-up Headlights",
+    caption: "Iconic Pop-up Lights"
+  },
+  {
+    src: "/src/assets/gallery/ae86-3.png",
+    alt: "AE86 Trueno Drifting",
+    caption: "Born to Drift"
+  },
+  {
+    src: "/src/assets/gallery/ae86-4.png",
+    alt: "AE86 Trueno Interior",
+    caption: "Racing Heritage"
+  },
+  {
+    src: "/src/assets/gallery/ae86-5.png",
+    alt: "AE86 Trueno Night Scene",
+    caption: "Night Runner"
+  },
+  {
+    src: "/src/assets/gallery/ae86-6.png",
+    alt: "AE86 Trueno Mountain Pass",
+    caption: "Mountain Legend"
+  }
+];
+---
+
+<section class="py-20 bg-gradient-to-b from-trueno-black-light to-trueno-black">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl md:text-5xl font-racing text-center mb-4
+      [text-shadow:_4px_4px_8px_rgb(0_0_0_/_85%)]">
+      Gallery of <span class="text-trueno-red [text-shadow:_0.5px_0.5px_0_#000,_1px_1px_4px_rgb(0_0_0_/_30%)]">Legends</span>
+    </h2>
+    <p class="text-center text-xl text-trueno-white/80 mb-12">Witness the Icon</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+      {images.map(image => (
+        <div class="group relative overflow-hidden rounded-xl aspect-[4/3]" data-aos="fade-up">
+          <img 
+            src={image.src} 
+            alt={image.alt}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-trueno-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <p class="text-trueno-white font-racing text-lg text-center">
+                {image.caption}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .aspect-[4/3] {
+    aspect-ratio: 4/3;
+  }
+</style> 

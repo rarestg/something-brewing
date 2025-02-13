@@ -1,0 +1,45 @@
+---
+const features = [
+  {
+    title: "Pop-Up Headlights That POP!",
+    description: "Illuminated pop-up headlights bathe your keys in a warm glow. Practical and undeniably cool.",
+    icon: "💡"
+  },
+  {
+    title: "Magnetic Magic",
+    description: "Stick it anywhere – fridge, toolbox, or cabinet. The magnetic world is your oyster!",
+    icon: "🧲"
+  },
+  {
+    title: "Built Like a Legend",
+    description: "Every detail of the iconic AE86 Trueno is captured, from the pop-up headlights to the TRUENO badge.",
+    icon: "🛠️"
+  },
+  {
+    title: "Hooked on Organization",
+    description: "A sturdy hook keeps your keys ready to roll. No more frantic morning key hunts!",
+    icon: "🚗"
+  }
+];
+---
+<section id="features" class="py-20 bg-gradient-to-b from-trueno-black-light to-trueno-black w-full overflow-hidden">
+  <div class="container mx-auto px-4 w-full">
+    <h2 class="text-4xl md:text-5xl font-racing text-center mb-4 text-trueno-white
+      [text-shadow:_4px_4px_8px_rgb(0_0_0_/_85%)]">
+      Not Just a Key Hook
+    </h2>
+    <p class="text-center text-xl text-trueno-white-muted mb-12
+      [text-shadow:_4px_4px_8px_rgb(0_0_0_/_85%)]">It's a Legend.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map(feature => (
+        <div class="bg-trueno-black-muted/80 backdrop-blur-lg p-6 rounded-xl border border-trueno-white-dark/10 hover:border-trueno-red-muted/50 transition-all duration-300">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="text-xl font-racing mb-2 text-trueno-white
+            [text-shadow:_4px_4px_8px_rgb(0_0_0_/_85%)]">{feature.title}</h3>
+          <p class="text-trueno-white-muted">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,27 +1,43 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import TruenoLore from '../components/TruenoLore.astro';
+import HistoryCard from '../components/HistoryCard.astro';
+import TargetAudience from '../components/TargetAudience.astro';
+import Gallery from '../components/Gallery.astro';
+import PreorderCTA from '../components/PreorderCTA.astro';
+import Footer from '../components/Footer.astro';
+import backgroundVideo from '../assets/videos/background.mp4';
+import PreorderModal from '../components/PreorderModal.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Something Brewing</title>
-	</head>
-	<body>
-		<Welcome />
-	</body>
-</html>
+<Layout title="AE86 Trueno Key Holder - Pre-order Now!">
+  <main class="relative w-full overflow-x-hidden">
+    {/* Video background */}
+    <div class="fixed inset-0 -z-20">
+      <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        class="w-full h-full object-cover"
+      >
+        <source src={backgroundVideo} type="video/mp4">
+      </video>
+    </div>
 
-<style>
-	body {
-		margin: 0;
-		padding: 0;
-	}
-</style>
+    {/* Semi-transparent overlay */}
+    <div class="fixed inset-0 -z-10 bg-trueno-black/10"></div>
+
+    {/* Content */}
+    <Hero />
+    <Features />
+    <Gallery />
+    <HistoryCard />
+    <TargetAudience />
+    <TruenoLore />
+    <PreorderCTA />
+    <Footer />
+  </main>
+</Layout>

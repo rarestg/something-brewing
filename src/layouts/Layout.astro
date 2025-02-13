@@ -1,22 +1,79 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/racing-sans-one';
+import 'aos/dist/aos.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title,
+  description = "Pre-order the iconic AE86 Illuminated Key Holder - A must-have for car enthusiasts!"
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- Add Open Graph meta tags -->
+    <meta property="og:title" content="AE86 Trueno Key Holder - Pre-order Now!" />
+    <meta property="og:description" content="Own a piece of JDM history with our premium AE86 key holder. Perfect for car enthusiasts." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:url" content="https://jdmhook.org" />
+    <meta property="og:type" content="website" />
+
+    <!-- iOS specific -->
+    <meta name="apple-mobile-web-app-title" content="AE86 Key Holder" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+  <body class="bg-trueno-black text-trueno-white font-inter">
+    <slot />
+    <script>
+      import AOS from 'aos';
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+      });
+    </script>
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Add global letter spacing for Racing Sans One font */
+  .font-racing {
+    letter-spacing: 0.05em;
+    /* Slightly increase font weight for better readability */
+    font-weight: 500;
+  }
+
+  /* Add extra letter spacing for smaller text */
+  .text-xl.font-racing,
+  .text-2xl.font-racing {
+    letter-spacing: 0.075em;
+  }
+
+  /* Add even more spacing for very small text */
+  .text-lg.font-racing,
+  .text-base.font-racing {
+    letter-spacing: 0.1em;
+  }
 </style>

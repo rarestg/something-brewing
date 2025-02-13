@@ -1,0 +1,55 @@
+---
+const specs = [
+  {
+    category: "Dimensions",
+    items: [
+      { label: "Height", value: "12cm" },
+      { label: "Width", value: "8cm" },
+      { label: "Depth", value: "2cm" },
+      { label: "Weight", value: "120g" }
+    ]
+  },
+  {
+    category: "Materials",
+    items: [
+      { label: "Body", value: "Premium ABS Plastic" },
+      { label: "Lights", value: "Ultra-bright LEDs" },
+      { label: "Mount", value: "Neodymium Magnets" },
+      { label: "Hook", value: "Stainless Steel" }
+    ]
+  },
+  {
+    category: "Features",
+    items: [
+      { label: "Battery Life", value: "1 Year (CR2032)" },
+      { label: "Water Resistance", value: "IPX4" },
+      { label: "Magnetic Force", value: "2.5kg Pull" },
+      { label: "LED Color", value: "Pure White" }
+    ]
+  }
+];
+---
+<section id="specs" class="py-20 bg-gradient-to-b from-trueno-black-light to-trueno-black">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl md:text-5xl font-racing text-center mb-4">
+      Technical <span class="text-trueno-red">Specifications</span>
+    </h2>
+    <p class="text-center text-xl text-trueno-white/80 mb-12">The Nitty Gritty</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto" data-aos="fade-up">
+      {specs.map(category => (
+        <div class="bg-trueno-black/50 backdrop-blur-lg p-6 rounded-xl border border-trueno-white/10">
+          <h3 class="text-2xl font-racing mb-4">{category.category}</h3>
+          <div class="space-y-3">
+            {category.items.map(item => (
+              <div class="flex justify-between items-center">
+                <span class="text-trueno-white/80">{item.label}</span>
+                <span class="text-trueno-white font-medium">{item.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

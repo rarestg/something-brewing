@@ -30,6 +30,21 @@ const productionDomain = 'https://jdmhook.org';
     <!-- Open Graph meta tags with production domain -->
     <meta property="og:title" content="JDM Hook! Pop-up Key Holder" />
     <meta property="og:description" content="Your keys deserve pop-up headlights! Limited AE86 key holders available." />
+    
+    <!-- OpenGraph Video Tags -->
+    <meta property="og:video" content={`${productionDomain}/og-video.mp4`} />
+    <meta property="og:video:secure_url" content={`${productionDomain}/og-video.mp4`} />
+    <meta property="og:video:type" content="video/mp4" />
+    <meta property="og:video:width" content="640" />
+    <meta property="og:video:height" content="360" />
+    
+    <!-- iOS/iMessage specific video tags -->
+    <meta name="twitter:card" content="player" />
+    <meta name="twitter:player" content={`${productionDomain}/og-video.mp4`} />
+    <meta name="twitter:player:width" content="640" />
+    <meta name="twitter:player:height" content="360" />
+    
+    <!-- Keep the image as fallback -->
     <meta property="og:image" content={`${productionDomain}/og-image.png`} />
     <meta property="og:url" content={productionDomain} />
     <meta property="og:type" content="website" />

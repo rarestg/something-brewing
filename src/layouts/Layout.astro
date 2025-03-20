@@ -27,6 +27,15 @@ const productionDomain = 'https://jdmhook.org';
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16940220378"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16940220378');
+    </script>
+
     <!-- Open Graph meta tags with production domain -->
     <meta property="og:title" content="JDM Hook! Pop-up Key Holder" />
     <meta property="og:description" content="Your keys deserve pop-up headlights! Limited AE86 key holders available." />

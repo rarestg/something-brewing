@@ -54,7 +54,7 @@ import PreorderModal from './PreorderModal.astro';
 
   <script>
     function updateCountdown() {
-      const launchDate = new Date('2025-03-01T00:00:00');
+      const launchDate = new Date('2025-04-01T00:00:00');
       const now = new Date();
       const diff = launchDate.getTime() - now.getTime();
 
@@ -63,10 +63,17 @@ import PreorderModal from './PreorderModal.astro';
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.querySelector('.days').textContent = days.toString().padStart(2, '0');
-      document.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
-      document.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
-      document.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+      const daysElement = document.querySelector('.days');
+      if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
+      
+      const hoursElement = document.querySelector('.hours');
+      if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+      
+      const minutesElement = document.querySelector('.minutes');
+      if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+      
+      const secondsElement = document.querySelector('.seconds');
+      if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
     }
 
     setInterval(updateCountdown, 1000);

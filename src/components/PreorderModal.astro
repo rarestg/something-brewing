@@ -99,29 +99,7 @@ import ae86_5 from '../assets/gallery/ae86-5.png';
 </style>
 
 <script>
-  // Google Ads conversion tracking function - make it globally available
-  window.gtag_report_conversion = function(url) {
-    var callback = function () {
-      if (typeof(url) != 'undefined') {
-        window.location = url;
-      }
-    };
-    
-    // Ensure gtag is available and is a function
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-16940220378/E_w6COez56waENr_3I0_',
-        'value': 1.0,
-        'currency': 'CAD',
-        'event_callback': callback
-      });
-      console.log('Google Ads conversion event sent');
-    } else {
-      console.error('Google tag (gtag) function not available');
-    }
-    
-    return false;
-  }
+  // Using the globally defined gtag_report_conversion function from Layout.astro
 
   const modal = document.getElementById('preorderModal');
   const closeBtn = document.getElementById('closeModal');

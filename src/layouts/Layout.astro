@@ -34,6 +34,25 @@ const productionDomain = 'https://jdmhook.org';
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-16940220378');
+      
+      // Define conversion tracking function globally after gtag is defined
+      window.gtag_report_conversion = function(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        
+        gtag('event', 'conversion', {
+          'send_to': 'AW-16940220378/E_w6COez56waENr_3I0_',
+          'value': 1.0,
+          'currency': 'CAD',
+          'event_callback': callback
+        });
+        console.log('Google Ads conversion event sent');
+        
+        return false;
+      }
     </script>
 
     <!-- Open Graph meta tags with production domain -->

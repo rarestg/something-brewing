@@ -99,19 +99,27 @@ import ae86_5 from '../assets/gallery/ae86-5.png';
 </style>
 
 <script>
-  // Google Ads conversion tracking function
-  function gtag_report_conversion(url) {
+  // Google Ads conversion tracking function - make it globally available
+  window.gtag_report_conversion = function(url) {
     var callback = function () {
       if (typeof(url) != 'undefined') {
         window.location = url;
       }
     };
-    gtag('event', 'conversion', {
-      'send_to': 'AW-16940220378/E_w6COez56waENr_3I0_',
-      'value': 1.0,
-      'currency': 'CAD',
-      'event_callback': callback
-    });
+    
+    // Ensure gtag is available and is a function
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-16940220378/E_w6COez56waENr_3I0_',
+        'value': 1.0,
+        'currency': 'CAD',
+        'event_callback': callback
+      });
+      console.log('Google Ads conversion event sent');
+    } else {
+      console.error('Google tag (gtag) function not available');
+    }
+    
     return false;
   }
 
@@ -179,9 +187,11 @@ import ae86_5 from '../assets/gallery/ae86-5.png';
         form.reset();
         
         // Trigger Google Ads conversion tracking
-        if (typeof gtag === 'function') {
-          gtag_report_conversion();
-          console.log('Conversion tracked successfully');
+        if (typeof window.gtag_report_conversion === 'function') {
+          window.gtag_report_conversion();
+          console.log('Conversion tracking function called');
+        } else {
+          console.error('Google tag conversion function not available');
         }
       } else {
         // Handle error
